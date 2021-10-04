@@ -39,17 +39,17 @@ namespace ASPNetCheckpoint.Controllers
             return newString;
         }
         [HttpGet("returndogarray/{name}/{age}/{breed}")]
-        public string ReturnDogArray(string name, int age, string breed)
+        public ActionResult<Dog> ReturnDogArray(string name, int age, string breed)
         {
             var inputDog=new Dog(name, age, breed);
-            return inputDog.ToString();
+            return inputDog;
         }
 
         public class Dog
         {
-            public string Name;
-            public int Age;
-            public string Breed;
+            public string Name {get; set;}
+            public int Age {get; set;}
+            public string Breed {get; set;}
             public Dog(string name, int age, string breed)
             {
                 Name = name;
